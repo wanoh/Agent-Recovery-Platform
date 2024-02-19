@@ -57,6 +57,23 @@ export const formatDateToMonthShort = (value, toTimeForCurrentDay = true) => {
   return new Intl.DateTimeFormat('en-US', formatting).format(new Date(value))
 }
 
+// ** Chats Date formatter
+export const formatChatDate = (
+  timestampInSeconds,
+  toTimeForCurrentDay = true
+) => {
+  const date = new Date(timestampInSeconds * 1000)
+  let formatting = { month: 'short', day: 'numeric' }
+
+  if (toTimeForCurrentDay && isToday(date)) {
+    formatting = { hour: 'numeric', minute: 'numeric' }
+  }
+
+  return new Intl.DateTimeFormat('en-US', formatting).format(
+    new Date(timestampInSeconds)
+  )
+}
+
 /**
  ** Return if user is logged in
  ** This is completely up to you and how you want to store the token in your frontend application

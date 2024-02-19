@@ -192,3 +192,29 @@ export const formatTimestamp = (timestampInSeconds) => {
     formattedTime,
   }
 }
+
+export const formatStrDateTime = (inputDate, inputTime) => {
+  // Combine date and time strings
+  const dateTimeString = `${inputDate} ${inputTime}`
+
+  // Parse the combined string to a Date object
+  const dateTime = new Date(dateTimeString)
+
+  // Get day name
+  const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+  const dayName = daysOfWeek[dateTime.getDay()]
+
+  // Get time in 12-hour format
+  const hours = dateTime.getHours() % 12 || 12
+  const mins = dateTime.getMinutes()
+  const year = dateTime.getFullYear()
+  const month = dateTime.getMonth() + 1 // Months are zero-based
+  const amPm = dateTime.getHours() >= 12 ? 'PM' : 'AM'
+
+  // Format the output string
+  const formattedString = `${dayName} ${hours}:${
+    mins < 10 ? `0 ${mins}` : mins
+  } ${amPm} - ${month}/${year}`
+
+  return formattedString
+}

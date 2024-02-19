@@ -11,15 +11,21 @@ import classnames from 'classnames'
 
 // ** Store & Actions
 import { useDispatch, useSelector } from 'react-redux'
-import { getUserProfile, getChatContacts } from './store'
+import { getChatContacts } from './store'
 
 import '@styles/base/pages/app-chat.scss'
 import '@styles/base/pages/app-chat-list.scss'
 
+// ** Firebase Imports
+import { doc, onSnapshot } from 'firebase/firestore'
+import { db } from '../../../../configs/firebase'
+import { getData } from '../../users/store'
+
 const AppChat = () => {
   // ** Store Vars
   const dispatch = useDispatch()
-  const store = useSelector(state => state.chat)
+  const store = useSelector((state) => state.chat)
+  const userData = useSelector((state) => state.auth.userData)
 
   // ** States
   const [user, setUser] = useState({})
@@ -38,13 +44,13 @@ const AppChat = () => {
   }
 
   // ** Set user function for Right Sidebar
-  const handleUser = obj => setUser(obj)
+  const handleUser = (obj) => setUser(obj)
 
   // ** Get data on Mount
   useEffect(() => {
     dispatch(getChatContacts())
-    dispatch(getUserProfile())
-  }, [dispatch])
+    getData()
+  }, [])
 
   return (
     <Fragment>
@@ -60,7 +66,10 @@ const AppChat = () => {
           <div className='content-body'>
             <div
               className={classnames('body-content-overlay', {
-                show: userSidebarRight === true || sidebar === true || userSidebarLeft === true
+                show:
+                  userSidebarRight === true ||
+                  sidebar === true ||
+                  userSidebarLeft === true,
               })}
               onClick={handleOverlayClick}
             ></div>

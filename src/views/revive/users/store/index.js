@@ -11,8 +11,7 @@ import {
   updateDoc,
   arrayUnion,
 } from 'firebase/firestore'
-import { auth, db } from '../../../../configs/firebase'
-import { useSelector } from 'react-redux'
+import { db } from '../../../../configs/firebase'
 
 export const getAllData = createAsyncThunk(
   'users/getAllData',
@@ -55,6 +54,9 @@ export const getData = createAsyncThunk('users/getData', async (params) => {
         ...doc.data(),
       }))
 
+      const admin = data.filter((user) => user.role === 'admin')
+      console.log('--~~ADMIN ADMIN', admin, data)
+
       const agentUsers = data.filter(
         (user) =>
           user.role === 'client' && user.assignedAgent?.email === params?.email
@@ -63,6 +65,7 @@ export const getData = createAsyncThunk('users/getData', async (params) => {
       return {
         params,
         data: agentUsers,
+        admin,
         totalPages: agentUsers.length,
       }
     } else {
@@ -440,6 +443,7 @@ export const usersSlice = createSlice({
   name: 'users',
   initialState: {
     data: [],
+    admin: [],
     total: 1,
     totalRecoveries: 1,
     totalTransactions: 1,
@@ -465,6 +469,7 @@ export const usersSlice = createSlice({
       })
       .addCase(getData.fulfilled, (state, action) => {
         state.data = action.payload.data
+        state.admin = action.payload.admin
         state.params = action.payload.params
         state.total = action.payload.totalPages
       })

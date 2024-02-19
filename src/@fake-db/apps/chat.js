@@ -15,7 +15,9 @@ import avatar11 from '@src/assets/images/portrait/small/avatar-s-11.jpg'
 
 /*eslint-disable */
 const previousDay = new Date(new Date().getTime() - 24 * 60 * 60 * 1000)
-const dayBeforePreviousDay = new Date(new Date().getTime() - 24 * 60 * 60 * 1000 * 2)
+const dayBeforePreviousDay = new Date(
+  new Date().getTime() - 24 * 60 * 60 * 1000 * 2
+)
 
 const data = {
   profileUser: {
@@ -28,18 +30,19 @@ const data = {
     status: 'online',
     settings: {
       isTwoStepAuthVerificationEnabled: true,
-      isNotificationsOn: false
-    }
+      isNotificationsOn: false,
+    },
   },
   contacts: [
     {
       id: 1,
       fullName: 'Felecia Rower',
       role: 'Frontend Developer',
-      about: 'Cake pie jelly jelly beans. Marzipan lemon drops halvah cake. Pudding cookie lemon drops icing',
+      about:
+        'Cake pie jelly jelly beans. Marzipan lemon drops halvah cake. Pudding cookie lemon drops icing',
 
       avatar: avatar2,
-      status: 'offline'
+      status: 'offline',
     },
     {
       id: 2,
@@ -48,7 +51,7 @@ const data = {
       about:
         'Toffee caramels jelly-o tart gummi bears cake I love ice cream lollipop. Sweet liquorice croissant candy danish dessert icing. Cake macaroon gingerbread toffee sweet.',
       avatar: avatar1,
-      status: 'busy'
+      status: 'busy',
     },
     {
       id: 3,
@@ -57,7 +60,7 @@ const data = {
       about:
         'Soufflé soufflé caramels sweet roll. Jelly lollipop sesame snaps bear claw jelly beans sugar plum sugar plum.',
       avatar: avatar3,
-      status: 'busy'
+      status: 'busy',
     },
     {
       id: 4,
@@ -66,15 +69,16 @@ const data = {
       about:
         'Chupa chups candy canes chocolate bar marshmallow liquorice muffin. Lemon drops oat cake tart liquorice tart cookie. Jelly-o cookie tootsie roll halvah.',
       avatar: avatar4,
-      status: 'online'
+      status: 'online',
     },
     {
       id: 5,
       fullName: 'Margot Henschke',
       role: 'Dietitian',
-      about: 'Cake pie jelly jelly beans. Marzipan lemon drops halvah cake. Pudding cookie lemon drops icing',
+      about:
+        'Cake pie jelly jelly beans. Marzipan lemon drops halvah cake. Pudding cookie lemon drops icing',
       avatar: avatar5,
-      status: 'busy'
+      status: 'busy',
     },
     {
       id: 6,
@@ -83,7 +87,7 @@ const data = {
       about:
         'Toffee caramels jelly-o tart gummi bears cake I love ice cream lollipop. Sweet liquorice croissant candy danish dessert icing. Cake macaroon gingerbread toffee sweet.',
       avatar: avatar6,
-      status: 'online'
+      status: 'online',
     },
     {
       id: 7,
@@ -92,7 +96,7 @@ const data = {
       about:
         'Biscuit powder oat cake donut brownie ice cream I love soufflé. I love tootsie roll I love powder tootsie roll.',
       avatar: avatar7,
-      status: 'online'
+      status: 'online',
     },
     {
       id: 8,
@@ -101,7 +105,7 @@ const data = {
       about:
         'Bear claw ice cream lollipop gingerbread carrot cake. Brownie gummi bears chocolate muffin croissant jelly I love marzipan wafer.',
       avatar: avatar8,
-      status: 'away'
+      status: 'away',
     },
     {
       id: 9,
@@ -110,113 +114,117 @@ const data = {
       about:
         'Gummies gummi bears I love candy icing apple pie I love marzipan bear claw. I love tart biscuit I love candy canes pudding chupa chups liquorice croissant.',
       avatar: avatar9,
-      status: 'offline'
+      status: 'offline',
     },
     {
       id: 10,
       fullName: 'Zenia Jacobs',
       role: 'Building surveyor',
-      about: 'Cake pie jelly jelly beans. Marzipan lemon drops halvah cake. Pudding cookie lemon drops icing',
+      about:
+        'Cake pie jelly jelly beans. Marzipan lemon drops halvah cake. Pudding cookie lemon drops icing',
       avatar: avatar10,
-      status: 'away'
-    }
+      status: 'away',
+    },
   ],
   chats: [
     {
-      id: 1,
-      userId: 1,
+      id: '1',
+      userId: '1ZGzcL3QQ7WrMnk9TNGxfqHi2DN2',
       unseenMsgs: 0,
       chat: [
         {
           message: 'Hi',
           time: 'Mon Dec 10 2018 07:45:00 GMT+0000 (GMT)',
-          senderId: 11
+          senderId: 'snqRQ9EjxAfEDeYfYeM2Zmk84ma2',
         },
         {
           message: 'Hello. How can I help You?',
           time: 'Mon Dec 11 2018 07:45:15 GMT+0000 (GMT)',
-          senderId: 2
+          senderId: '1ZGzcL3QQ7WrMnk9TNGxfqHi2DN2',
         },
         {
-          message: 'Can I get details of my last transaction I made last month?',
+          message:
+            'Can I get details of my last transaction I made last month?',
           time: 'Mon Dec 11 2018 07:46:10 GMT+0000 (GMT)',
-          senderId: 11
+          senderId: 'snqRQ9EjxAfEDeYfYeM2Zmk84ma2',
         },
         {
           message: 'We need to check if we can provide you such information.',
           time: 'Mon Dec 11 2018 07:45:15 GMT+0000 (GMT)',
-          senderId: 2
+          senderId: '1ZGzcL3QQ7WrMnk9TNGxfqHi2DN2',
         },
         {
           message: 'I will inform you as I get update on this.',
           time: 'Mon Dec 11 2018 07:46:15 GMT+0000 (GMT)',
-          senderId: 2
+          senderId: '1ZGzcL3QQ7WrMnk9TNGxfqHi2DN2',
         },
         {
           message: 'If it takes long you can mail me at my mail address.',
           time: dayBeforePreviousDay,
-          senderId: 11
-        }
-      ]
+          senderId: 'snqRQ9EjxAfEDeYfYeM2Zmk84ma2',
+        },
+      ],
     },
     {
-      id: 2,
-      userId: 2,
+      id: '2',
+      userId: 'obFlFEa0N8bjOuMaPffNB1DD73U2',
       unseenMsgs: 1,
       chat: [
         {
           message: "How can we help? We're here for you!",
           time: 'Mon Dec 10 2018 07:45:00 GMT+0000 (GMT)',
-          senderId: 11
+          senderId: 'snqRQ9EjxAfEDeYfYeM2Zmk84ma2',
         },
         {
-          message: 'Hey John, I am looking for the best admin template. Could you please help me to find it out?',
+          message:
+            'Hey John, I am looking for the best admin template. Could you please help me to find it out?',
           time: 'Mon Dec 10 2018 07:45:23 GMT+0000 (GMT)',
-          senderId: 1
+          senderId: 'obFlFEa0N8bjOuMaPffNB1DD73U2',
         },
         {
           message: 'It should be Bootstrap 5 compatible.',
           time: 'Mon Dec 10 2018 07:45:55 GMT+0000 (GMT)',
-          senderId: 1
+          senderId: 'obFlFEa0N8bjOuMaPffNB1DD73U2',
         },
         {
           message: 'Absolutely!',
           time: 'Mon Dec 10 2018 07:46:00 GMT+0000 (GMT)',
-          senderId: 11
+          senderId: 'snqRQ9EjxAfEDeYfYeM2Zmk84ma2',
         },
         {
-          message: 'Modern admin is the responsive bootstrap 5 admin template.!',
+          message:
+            'Modern admin is the responsive bootstrap 5 admin template.!',
           time: 'Mon Dec 10 2018 07:46:05 GMT+0000 (GMT)',
-          senderId: 11
+          senderId: 'snqRQ9EjxAfEDeYfYeM2Zmk84ma2',
         },
         {
           message: 'Looks clean and fresh UI.',
           time: 'Mon Dec 10 2018 07:46:23 GMT+0000 (GMT)',
-          senderId: 1
+          senderId: 'obFlFEa0N8bjOuMaPffNB1DD73U2',
         },
         {
           message: "It's perfect for my next project.",
           time: 'Mon Dec 10 2018 07:46:33 GMT+0000 (GMT)',
-          senderId: 1
+          senderId: 'obFlFEa0N8bjOuMaPffNB1DD73U2',
         },
         {
           message: 'How can I purchase it?',
           time: 'Mon Dec 10 2018 07:46:43 GMT+0000 (GMT)',
-          senderId: 1
+          senderId: 'obFlFEa0N8bjOuMaPffNB1DD73U2',
         },
         {
           message: 'Thanks, from ThemeForest.',
           time: 'Mon Dec 10 2018 07:46:53 GMT+0000 (GMT)',
-          senderId: 11
+          senderId: 'snqRQ9EjxAfEDeYfYeM2Zmk84ma2',
         },
         {
           message: 'I will purchase it for sure. 👍',
           time: previousDay,
-          senderId: 1
-        }
-      ]
-    }
-  ]
+          senderId: 'obFlFEa0N8bjOuMaPffNB1DD73U2',
+        },
+      ],
+    },
+  ],
 }
 /*eslint-enable */
 
@@ -231,18 +239,25 @@ const reOrderChats = (arr, from, to) => {
 // GET: Return Chats Contacts and Contacts
 // ------------------------------------------------
 mock.onGet('/apps/chat/chats-and-contacts').reply(() => {
-  const chatsContacts = data.chats.map(chat => {
-    const contact = data.contacts.find(c => c.id === chat.userId)
-    contact.chat = { id: chat.id, unseenMsgs: chat.unseenMsgs, lastMessage: chat.chat[chat.chat.length - 1] }
+  const chatsContacts = data.chats.map((chat) => {
+    const contact = data.contacts.find((c) => c.id === chat.userId)
+    contact.chat = {
+      id: chat.id,
+      unseenMsgs: chat.unseenMsgs,
+      lastMessage: chat.chat[chat.chat.length - 1],
+    }
     return contact
   })
   const profileUserData = {
     id: data.profileUser.id,
     avatar: data.profileUser.avatar,
     fullName: data.profileUser.fullName,
-    status: data.profileUser.status
+    status: data.profileUser.status,
   }
-  return [200, { chatsContacts, contacts: data.contacts, profileUser: profileUserData }]
+  return [
+    200,
+    { chatsContacts, contacts: data.contacts, profileUser: profileUserData },
+  ]
 })
 
 // ------------------------------------------------
@@ -253,7 +268,7 @@ mock.onGet('/apps/chat/users/profile-user').reply(() => [200, data.profileUser])
 // ------------------------------------------------
 // GET: Return Single Chat
 // ------------------------------------------------
-mock.onGet('/apps/chat/get-chat').reply(config => {
+mock.onGet('/apps/chat/get-chat').reply((config) => {
   // Get event id from URL
 
   let userId = config.id
@@ -261,9 +276,9 @@ mock.onGet('/apps/chat/get-chat').reply(config => {
   //  Convert Id to number
   userId = Number(userId)
 
-  const chat = data.chats.find(c => c.id === userId)
+  const chat = data.chats.find((c) => c.id === userId)
   if (chat) chat.unseenMsgs = 0
-  const contact = data.contacts.find(c => c.id === userId)
+  const contact = data.contacts.find((c) => c.id === userId)
   if (contact.chat) contact.chat.unseenMsgs = 0
   return [200, { chat, contact }]
 })
@@ -271,16 +286,16 @@ mock.onGet('/apps/chat/get-chat').reply(config => {
 // ------------------------------------------------
 // POST: Add new chat message
 // ------------------------------------------------
-mock.onPost('/apps/chat/send-msg').reply(config => {
+mock.onPost('/apps/chat/send-msg').reply((config) => {
   // Get event from post data
   const { obj } = JSON.parse(config.data)
 
-  let activeChat = data.chats.find(chat => chat.userId === obj.contact.id)
+  let activeChat = data.chats.find((chat) => chat.userId === obj.contact.id)
 
   const newMessageData = {
     message: obj.message,
     time: new Date(),
-    senderId: 11
+    senderId: 11,
   }
   // If there's new chat for user create one
   let isNewChat = false
@@ -293,7 +308,7 @@ mock.onPost('/apps/chat/send-msg').reply(config => {
       id: obj.contact.id,
       userId: obj.contact.id,
       unseenMsgs: 0,
-      chat: [newMessageData]
+      chat: [newMessageData],
     })
     activeChat = data.chats[data.chats.length - 1]
   } else {
@@ -305,7 +320,7 @@ mock.onPost('/apps/chat/send-msg').reply(config => {
 
   reOrderChats(
     data.chats,
-    data.chats.findIndex(i => i.id === response.id),
+    data.chats.findIndex((i) => i.id === response.id),
     0
   )
 

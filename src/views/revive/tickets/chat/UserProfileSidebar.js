@@ -6,23 +6,16 @@ import classnames from 'classnames'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 
 // ** Reactstrap Imports
+import { X, Mail, PhoneCall, Clock } from 'react-feather'
 import {
-  X,
-  Mail,
-  PhoneCall,
-  Clock,
-  Tag,
-  Star,
-  Image,
-  Trash,
-  Slash,
-} from 'react-feather'
-import { capitaliseStr } from '../../../../utility/HelperFunc'
+  capitaliseStr,
+  formatStrDateTime,
+} from '../../../../utility/HelperFunc'
 
 const UserProfileSidebar = (props) => {
   // ** Props
   const { user, handleUserSidebarRight, userSidebarRight } = props
-
+  console.log('@~~~User', user)
   return (
     <div
       className={classnames('user-profile-sidebar', {
@@ -34,63 +27,42 @@ const UserProfileSidebar = (props) => {
           <X size={14} />
         </span>
         <div className='header-profile-sidebar'>
-          <Avatar
-            className='box-shadow-1 avatar-border'
-            size='xl'
-            status={user.status}
-            img={user.avatar}
-            imgHeight='70'
-            imgWidth='70'
-          />
+          <div className='chat-avatar'>
+            <div>
+              <Avatar
+                initials
+                style={{ width: '42', height: '42', padding: '5px' }}
+                status={user.onlineStatus}
+                className='box-shadow-1 avatar-border'
+                color={'light-warning'}
+                content={user.fullName || user.email}
+              />
+            </div>
+          </div>
           <h4 className='chat-user-name'>{user.fullName}</h4>
-          <span className='user-post'>{capitaliseStr(user.role)}</span>
+          {/* <span className='user-post'>{capitaliseStr(user.role)}</span> */}
         </div>
       </header>
       <PerfectScrollbar
         className='user-profile-sidebar-area'
         options={{ wheelPropagation: false }}
       >
-        <h6 className='section-label mb-1'>About</h6>
-        <p>{user.about}</p>
         <div className='personal-info'>
           <h6 className='section-label mb-1 mt-3'>Personal Information</h6>
           <ul className='list-unstyled'>
             <li className='mb-1'>
               <Mail className='me-75' size={17} />
-              <span className='align-middle'>lucifer@email.com</span>
+              <span className='align-middle'>{user && user.email}</span>
             </li>
             <li className='mb-1'>
               <PhoneCall className='me-50' size={17} />
-              <span className='align-middle'> +1(123) 456 - 7890</span>
+              <span className='align-middle'>{user && user.contact}</span>
             </li>
             <li>
               <Clock className='me-50' size={17} />
-              <span className='align-middle'> Mon - Fri 10AM - 8PM</span>
-            </li>
-          </ul>
-        </div>
-        <div className='more-options'>
-          <h6 className='section-label mb-1 mt-3'>Options</h6>
-          <ul className='list-unstyled'>
-            <li className='cursor-pointer mb-1'>
-              <Tag className='me-50' size={17} />
-              <span className='align-middle'> Add Tag</span>
-            </li>
-            <li className='cursor-pointer mb-1'>
-              <Star className='me-50' size={17} />
-              <span className='align-middle'> Important Contact</span>
-            </li>
-            <li className='cursor-pointer mb-1'>
-              <Image className='me-50' size={17} />
-              <span className='align-middle'> Shared Media</span>
-            </li>
-            <li className='cursor-pointer mb-1'>
-              <Trash className='me-50' size={17} />
-              <span className='align-middle'> Delete Contact</span>
-            </li>
-            <li className='cursor-pointer'>
-              <Slash className='me-75' size={17} />
-              <span className='align-middle'>Block Contact</span>
+              <span className='align-middle'>
+                {formatStrDateTime(user.lastLogin?.date, user.lastLogin?.time)}
+              </span>
             </li>
           </ul>
         </div>
