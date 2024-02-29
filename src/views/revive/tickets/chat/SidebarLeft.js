@@ -36,19 +36,18 @@ const SidebarLeft = (props) => {
     userSidebarLeft,
     handleUserSidebarLeft,
   } = props
-  const { chats, contacts } = store
-
+  const { chats, contacts, clientContacts } = store
   // ** Dispatch
   const dispatch = useDispatch()
 
   // ** currentUser
   const userData = useSelector((state) => state.auth.userData)
+  const chatsData = useSelector((state) => state.chat)
 
+  console.log('LOGGG', chatsData)
   // ** State
   const [query, setQuery] = useState('')
-  const [about, setAbout] = useState('')
   const [active, setActive] = useState(0)
-  const [status, setStatus] = useState('online')
   const [filteredChat, setFilteredChat] = useState([])
   const [filteredContacts, setFilteredContacts] = useState([])
 
@@ -173,6 +172,44 @@ const SidebarLeft = (props) => {
     }
   }
 
+  const renderClientsContacts = () => {
+    if (clientContacts && clientContacts.length) {
+      if (query.length && !filteredContacts.length) {
+        return (
+          <li className='no-results show'>
+            <h6 className='mb-0'>No Chats Found</h6>
+          </li>
+        )
+      } else {
+        const arrToMap =
+          query.length && filteredContacts.length
+            ? filteredContacts
+            : clientContacts
+        return arrToMap.map((item) => {
+          return (
+            <li key={item.email} onClick={() => handleUserClick(item.id)}>
+              <div>
+                <Avatar
+                  initials
+                  style={{ width: '42', height: '42', padding: '5px' }}
+                  className='w-100'
+                  color={item.avatarColor || 'light-warning'}
+                  content={item.fullName || item.email}
+                />
+              </div>
+              <div className='chat-info flex-grow-1'>
+                <h5 className='mb-0'>{item.fullName}</h5>
+                <CardText className='text-truncate'>{item.email}</CardText>
+              </div>
+            </li>
+          )
+        })
+      }
+    } else {
+      return null
+    }
+  }
+
   // ** Handles Filter
   const handleFilter = (e) => {
     setQuery(e.target.value)
@@ -242,9 +279,13 @@ const SidebarLeft = (props) => {
             <ul className='chat-users-list chat-list media-list'>
               {renderChats()}
             </ul>
-            <h4 className='chat-list-title'>Agents</h4>
+            <h4 className='chat-list-title'>Admin</h4>
             <ul className='chat-users-list contact-list media-list'>
               {renderContacts()}
+            </ul>
+            <h4 className='chat-list-title'>Clients</h4>
+            <ul className='chat-users-list contact-list media-list'>
+              {renderClientsContacts()}
             </ul>
           </PerfectScrollbar>
         </div>
